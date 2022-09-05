@@ -18,16 +18,16 @@ catkin_package(
     include
     ${TBB_INCLUDE_DIRS}
   LIBRARIES
-    kartoSlamToolbox
+    karto_sdk
 )
 
 add_definitions(${EIGEN3_DEFINITIONS})
 
 include_directories(include ${catkin_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIRS} ${TBB_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
-add_library(kartoSlamToolbox SHARED src/Karto.cpp src/Mapper.cpp)
-target_link_libraries(kartoSlamToolbox ${Boost_LIBRARIES} ${TBB_LIBRARIES})
+add_library(karto_sdk SHARED src/Karto.cpp src/Mapper.cpp)
+target_link_libraries(karto_sdk ${Boost_LIBRARIES} ${TBB_LIBRARIES})
 
 install(DIRECTORY include/ DESTINATION include)
-install(TARGETS kartoSlamToolbox
+install(TARGETS karto_sdk
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 )
